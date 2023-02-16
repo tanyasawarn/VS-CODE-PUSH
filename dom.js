@@ -46,7 +46,7 @@
 //itemlist.previousElementSibling.style.color = 'green';
 
 //creating element
-var newDiv=document.createElement('div');
+/*var newDiv=document.createElement('div');
 console.log(newDiv);
 
 newDiv.className= 'hello123';
@@ -70,4 +70,37 @@ var h1=document.querySelector('header h1');
 console.log(newDiv);
 
 container.insertBefore(newDiv, h1);
-  
+  */
+ var form = document.getElementById('addForm');
+ var itemList=document.getElementById('items');
+ form.addEventListener('submit',addItem);
+
+ function addItem(e)
+ {
+   e.preventDefault();
+ var newItem = document.getElementById('item').value;
+
+ // creatig a new li element
+ var li= document.createElement('li');
+
+ li.className = 'list-group-item';
+//adding text nde with input value
+
+li.appendChild(document.createElement(newItem));
+
+//creating del button
+
+var delebtn=document.createElement('button');
+
+//adding class to del button
+delebtn.className ='btn btn-danger btn-sm float right delete';
+
+//appending text node
+delebtn.appendChild(document.createTextNode('x'));
+
+//append button to li
+li.appendChild(delebtn);
+
+//append li to list
+DataTransferItemList.appendChild(li);
+ }
